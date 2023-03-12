@@ -64,13 +64,6 @@ rio::install_formats()
 q()
 EOF
 
-R --vanilla << EOF
-install.packages(c("tidyverse","data.table","dplyr","magrittr","devtools","roxygen2","bit64","readr", "utf8", "lubridate", "rio"), repos = "https://cran.rstudio.com/", type="source")
-rio::install_formats()
-q()
-EOF
-
-
 #Install Radiant and Esquisse packages
 R --vanilla << EOF
 install.packages("httpuv", type="source")
