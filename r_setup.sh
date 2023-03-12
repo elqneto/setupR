@@ -15,19 +15,21 @@ sudo apt update
 sudo apt install -y gdebi-core
 
 # Install R and some additional tools
+# update indices
+sudo apt update -qq
+# install two helper packages we need
+sudo apt install --no-install-recommends software-properties-common dirmngr
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+
 sudo apt-get install -y g++
 sudo apt-get install -y libxml2-dev libssl-dev libcurl4-openssl-dev libopenblas-dev libpoppler-cpp-dev default-jre default-jdk libfreetype6-dev
 sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev libcairo2-dev libbz2-dev liblzma-dev libgtk2.0-dev cmake build-essential librsvg2-bin librsvg2-dev 
 sudo apt-get install -y libicu-dev unixodbc-dev libpq-dev libgdal-dev libproj-dev cargo libgsl-dev libnetcdf-dev libgeos-dev libudunits2-dev libv8-dev
-
-# Install latest stable version of R
-sudo apt install -y r-base r-base-core r-base-dev 
-
-# Install latest stable version of RStudio
-cd ~/Downloads
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-latest-amd64.deb
-sudo gdebi rstudio-latest-amd64.deb
-printf '\nexport QT_STYLE_OVERRIDE=gtk\n' | sudo tee -a ~/.profile
 
 # Install some common packages
 R --vanilla << EOF
