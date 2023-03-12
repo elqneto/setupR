@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# R and RStudio installation and configuration script for Ubuntu 18.04
+# R and RStudio installation and configuration script for Ubuntu
 # This script updates the current installation of R and RStudio, installs some additional tools and packages,
 # and configures some common settings.
-# Last updated: 2023-03-13
+# Last updated: 2023-03-12
 
 #Remove previous R and RStudio installation
 sudo apt-get remove rstudio
@@ -26,6 +26,12 @@ wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sud
 # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 
+# Install latest stable version of RStudio
+cd ~/Downloads
+wget https://download1.rstudio.org/electron/bionic/amd64/rstudio-2022.12.0-353-amd64.deb
+sudo gdebi rstudio-2022.12.0-353-amd64.deb
+printf '\nexport QT_STYLE_OVERRIDE=gtk\n' | sudo tee -a ~/.profile
+
 sudo apt-get install -y g++
 sudo apt-get install -y libxml2-dev libssl-dev libcurl4-openssl-dev libopenblas-dev libpoppler-cpp-dev default-jre default-jdk libfreetype6-dev
 sudo apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev libcairo2-dev libbz2-dev liblzma-dev libgtk2.0-dev cmake build-essential librsvg2-bin librsvg2-dev 
@@ -33,7 +39,7 @@ sudo apt-get install -y libicu-dev unixodbc-dev libpq-dev libgdal-dev libproj-de
 
 # Install some common packages
 R --vanilla << EOF
-install.packages(c("tidyverse","data.table","dplyr","magrittr","devtools","roxygen2","bit64","readr", "utf8", "lubridate", "rio"), repos = "https://cran.rstudio.com/", type="source")
+install.packages(c("tidyverse","data.table","dplyr","magrittr","devtools","roxygen2","bit64","readr", "utf8", "lubridate", "rio", "bibliometrix"), repos = "https://cran.rstudio.com/", type="source")
 rio::install_formats()
 q()
 EOF
