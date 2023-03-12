@@ -59,8 +59,6 @@ EOF
 # Install packages for graphics, maps, spatial analysis and visualization
 R --vanilla << EOF
 install.packages(c("ggplot2", "shiny", "visNetwork", "htmlwidgets", "igraph","threejs", "networkD3"), repos = "https://cran.rstudio.com/", type="R --vanilla << EOF
-install.packages(c("tidyverse","data.table","dplyr","magrittr","devtools","roxygen2","bit64","readr", "utf8", "lubridate", "rio"), repos = "https://cran.rstudio.com/", type="source")
-rio::install_formats()
 q()
 EOF
 
