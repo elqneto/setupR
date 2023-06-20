@@ -28,8 +28,8 @@ sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_
 
 # Install latest stable version of RStudio
 cd ~/Downloads
-wget https://download1.rstudio.org/electron/bionic/amd64/rstudio-2022.12.0-353-amd64.deb
-sudo gdebi rstudio-2022.12.0-353-amd64.deb
+wget https://download1.rstudio.org/electron/bionic/amd64/rstudio-2023.06.0-421-amd64.deb
+sudo gdebi rstudio-2023.06.0-421-amd64.deb
 printf '\nexport QT_STYLE_OVERRIDE=gtk\n' | sudo tee -a ~/.profile
 
 sudo apt-get install -y g++
