@@ -21,7 +21,7 @@ A instalação do LaTeX e dos pacotes pode levar bastante tempo e alguns gigabytes
 
 - Remove o pacote antigo `rstudio`, se ele estiver instalado, e instala o Positron.
 - Deixa de fixar versões antigas do Radiant e do `mnormt`.
-- Troca o `RMySQL` pelo `RMariaDB` e o `tabulizer` pelo `tabulapdf`.
+- Instala o `RMariaDB` e o `RMySQL`, e troca o `tabulizer` pelo `tabulapdf`.
 - Instala o OpenJDK 21, que o `rJava` usa, em vez do Java padrão da distribuição.
 - Não apaga a biblioteca de pacotes do R já instalada no sistema.
 

@@ -212,7 +212,7 @@ pkgs <- c(
   "tidyverse", "data.table", "dplyr", "magrittr", "devtools", "roxygen2",
   "usethis", "bit64", "readr", "utf8", "lubridate", "rio", "janitor",
   "stringr", "bibliometrix", "arrow", "duckdb",
-  "rJava", "DBI", "odbc", "dbplyr", "RMariaDB", "RPostgres", "RSQLite", "RJDBC",
+  "rJava", "DBI", "odbc", "dbplyr", "RMariaDB", "RMySQL", "RPostgres", "RSQLite", "RJDBC",
   "ggplot2", "shiny", "bslib", "visNetwork", "htmlwidgets", "igraph",
   "threejs", "networkD3", "sf", "leaflet", "plotly", "ragg", "svglite",
   "httpuv", "rsvg", "esquisse", "radiant",
