@@ -1,30 +1,30 @@
 # setupR
 
-Script para instalar o R atual, o [Positron](https://positron.posit.co/) e pacotes de ciência de dados no Ubuntu 26.04 LTS e em versões mais novas.
+Script to install current R, [Positron](https://positron.posit.co/), and data-science packages on Ubuntu 26.04 LTS and newer.
 
-O Positron é o ambiente de desenvolvimento da [Posit](https://posit.co/) para R e Python. A Posit é a empresa que antes se chamava RStudio. O RStudio Desktop ainda existe, e o Positron é o software que o sucede neste script.
+Positron is the [Posit](https://posit.co/) development environment for R and Python. Posit is the company formerly known as RStudio. RStudio Desktop still exists, and Positron is the product this script installs in its place.
 
-## Uso
+## Usage
 
-No Ubuntu 26.04.1 LTS ou mais recente:
+On Ubuntu 26.04.1 LTS or newer:
 
 ```bash
 chmod +x r_setup.sh
 ./r_setup.sh
 ```
 
-O script pede senha de administrador e precisa de internet. Ele instala a versão mais recente do Positron e do Quarto, confere o SHA-256 de cada instalador e obtém o R pelo repositório do CRAN. Quando o [r2u](https://github.com/eddelbuettel/r2u) publica binários para essa versão do Ubuntu, os pacotes do R são instalados por ele.
+The script asks for an administrator password and needs internet access. It installs the latest Positron and Quarto releases, checks the SHA-256 checksum of each installer, and gets R from the CRAN repository. When [r2u](https://github.com/eddelbuettel/r2u) publishes binaries for that Ubuntu release, R packages are installed from it.
 
-A instalação do LaTeX e dos pacotes pode levar bastante tempo e alguns gigabytes de disco.
+Installing LaTeX and the packages can take a long time and several gigabytes of disk space.
 
-## O que o script troca
+## What the script changes
 
-- Remove o pacote antigo `rstudio`, se ele estiver instalado, e instala o Positron.
-- Deixa de fixar versões antigas do Radiant e do `mnormt`.
-- Instala o `RMariaDB` e o `RMySQL`, e troca o `tabulizer` pelo `tabulapdf`.
-- Instala o OpenJDK 21, que o `rJava` usa, em vez do Java padrão da distribuição.
-- Não apaga a biblioteca de pacotes do R já instalada no sistema.
+- Removes the old `rstudio` package, if it is installed, and installs Positron.
+- Stops pinning old Radiant and `mnormt` versions.
+- Installs `RMariaDB` and `RMySQL`, and replaces `tabulizer` with `tabulapdf`.
+- Installs OpenJDK 21 for `rJava` instead of the distribution's default Java.
+- Does not delete an R package library already installed on the system.
 
-## Licença
+## License
 
-MIT. Veja [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
